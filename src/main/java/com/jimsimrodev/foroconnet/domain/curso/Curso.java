@@ -27,11 +27,8 @@ public class Curso {
     private List<Topico> topicos;
 
     public Curso(DatosCurso curso) {
+        this.id = curso.id();
         this.nombre = curso.nombre();
         this.categoria = curso.categoria();
     }
-
-    public Curso(Curso curso) {
-    }
-
 }

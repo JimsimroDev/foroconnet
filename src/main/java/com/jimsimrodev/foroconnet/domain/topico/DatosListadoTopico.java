@@ -1,12 +1,13 @@
 package com.jimsimrodev.foroconnet.domain.topico;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public record DatosListadoTopico(
         Long id,
         String titulo,
         String mensaje,
-        LocalDateTime fehcaCreacion,
+        LocalDate fehcaCreacion,
         String estado,
         String autor){
 

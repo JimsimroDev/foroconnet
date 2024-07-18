@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity(name = "Usuario")
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +38,10 @@ public class Usuario implements UserDetails {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Topico> topicos;
+
+    public Usuario(DatosUsuario usuario) {
+        this.id = usuario.id();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

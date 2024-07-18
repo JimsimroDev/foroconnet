@@ -27,7 +27,9 @@ public class SecurityConfiguractions {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers(HttpMethod.GET, "/medicos").authenticated() // Agrega esta línea
+
+              //  .requestMatchers(HttpMethod.POST, "/tipico").authenticated() // Agrega esta línea
+             //   .requestMatchers(HttpMethod.POST, "/tipico").authenticated() // Agrega esta línea
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

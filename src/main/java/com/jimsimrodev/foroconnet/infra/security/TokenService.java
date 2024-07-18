@@ -6,6 +6,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.jimsimrodev.foroconnet.domain.usuario.Usuario;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -15,9 +16,12 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
+    @Value("${api.security.secret}")
+    private  String apiSecretep;
+
     public String generarToken(Usuario usuario){
         try {
-            Algorithm algorithm = Algorithm.HMAC256("123456");
+            Algorithm algorithm = Algorithm.HMAC256(apiSecretep);
             return  JWT.create()
                     .withIssuer("foroconnet")
                     .withSubject(usuario.getNombre())
@@ -30,18 +34,16 @@ public class TokenService {
     }
 
     public String getSubject(String token){
-        System.out.println(token);
         if(token == null){
             throw new RuntimeException();
         }
         DecodedJWT verifier = null;
         try {
-            Algorithm algorithm = Algorithm.HMAC256("123456");
+            Algorithm algorithm = Algorithm.HMAC256(apiSecretep);
             verifier = JWT.require(algorithm)
-                    .withIssuer("voll med")
+                    .withIssuer("foroconnet")
                     .build()
                     .verify(token);
-            System.out.println("Valida si es nul "+token);
             verifier.getSubject();
         } catch (JWTVerificationException exception){
             System.out.println(exception.toString());

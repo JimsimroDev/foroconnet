@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Topico {
     private String titulo;
     private String mensaje;
     @Column(name = "fecha_creacion")
-    private LocalDateTime fechaCreacion;
+    private LocalDate fechaCreacion;
     private String status;
     private String autor;
 
@@ -36,14 +37,17 @@ public class Topico {
     @OneToMany(mappedBy = "topico")// cascade = CascadeType.ALL, fetch = FetchType.LAZY
     private List<Respuesta> respuestas;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
     public Topico(DatosRegistroTopicos datosRegistroTopicos){
         this.titulo = datosRegistroTopicos.titulo();
         this.mensaje = datosRegistroTopicos.mensaje();
+        this.fechaCreacion = LocalDate.now();
+        this.status = datosRegistroTopicos.status();
         this.autor = datosRegistroTopicos.autor();
-        this.curso = new Curso(datosRegistroTopicos.curso());
+        this.curso = getCurso();
+        this.usuario =new Usuario(datosRegistroTopicos.usuario());
     }
 }
