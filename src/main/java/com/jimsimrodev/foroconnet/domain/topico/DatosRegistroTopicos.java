@@ -24,12 +24,10 @@ public record DatosRegistroTopicos(
         String status,
         @NotBlank
         String autor,
-          @NotNull
-        @Valid
-      DatosCurso curso,
         @NotNull
-        @Valid
-        DatosUsuario usuario
+        DatosCurso curso
+     //   @NotNull
+       // Long idUsuario
 ) {
 
 }

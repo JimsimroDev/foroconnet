@@ -7,8 +7,8 @@ public record DatosRespuestaTopico(
         Long id,
         String mensaje,
         String status,
-        String autor,
-        DatosCurso curso,
-        DatosUsuario usuario
+        String autor
+    //    Long idCurso
+       // DatosUsuario usuario
 ) {
 }

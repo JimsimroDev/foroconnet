@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -48,6 +47,5 @@ public class Topico {
         this.status = datosRegistroTopicos.status();
         this.autor = datosRegistroTopicos.autor();
         this.curso = getCurso();
-        this.usuario =new Usuario(datosRegistroTopicos.usuario());
     }
 }
