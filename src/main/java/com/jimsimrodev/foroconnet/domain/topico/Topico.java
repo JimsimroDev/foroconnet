@@ -46,6 +46,6 @@ public class Topico {
         this.fechaCreacion = LocalDate.now();
         this.status = datosRegistroTopicos.status();
         this.autor = datosRegistroTopicos.autor();
-        this.curso = getCurso();
+        this.curso = datosRegistroTopicos.curso();
     }
 }

@@ -1,14 +1,10 @@
 package com.jimsimrodev.foroconnet.controller;
 
 import com.jimsimrodev.foroconnet.domain.curso.Curso;
-import com.jimsimrodev.foroconnet.domain.curso.DatosCurso;
 import com.jimsimrodev.foroconnet.domain.curso.ICursoRepository;
 import com.jimsimrodev.foroconnet.domain.topico.*;
-import com.jimsimrodev.foroconnet.domain.usuario.DatosUsuario;
-import com.jimsimrodev.foroconnet.domain.usuario.Usuario;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -44,6 +40,17 @@ public class TopicosController {
           @RequestBody @Valid DatosRegistroTopicos datosRegistroTopicos,
           UriComponentsBuilder uriComponentsBuilder){
 
+    Curso curso = cursoRepository.findById(datosRegistroTopicos.idCurso()).orElseThrow();
+
+    //Asignar el curso al DTO
+    datosRegistroTopicos = new DatosRegistroTopicos(
+            datosRegistroTopicos.titulo(),
+            datosRegistroTopicos.mensaje(),
+            datosRegistroTopicos.status(),
+            datosRegistroTopicos.autor(),
+            datosRegistroTopicos.idCurso(),
+            curso
+    );
 
     Topico topico = topicoRepository.save(new Topico(datosRegistroTopicos));
 

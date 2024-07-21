@@ -1,15 +1,8 @@
 package com.jimsimrodev.foroconnet.domain.topico;
 
-import com.jimsimrodev.foroconnet.domain.curso.DatosCurso;
-import com.jimsimrodev.foroconnet.domain.usuario.DatosUsuario;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Future;
+import com.jimsimrodev.foroconnet.domain.curso.Curso;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public record DatosRegistroTopicos(
         @NotBlank(message = "{titulo.obligatorio}")
@@ -25,9 +18,10 @@ public record DatosRegistroTopicos(
         @NotBlank
         String autor,
         @NotNull
-        DatosCurso curso
+      //  DatosCurso curso
      //   @NotNull
-       // Long idUsuario
+        Long idCurso,
+        Curso curso
 ) {
 
 }
