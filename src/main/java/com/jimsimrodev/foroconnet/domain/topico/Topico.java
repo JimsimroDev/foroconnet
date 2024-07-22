@@ -27,7 +27,6 @@ public class Topico {
     @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
     private String status;
-    private String autor;
 
     @ManyToOne
     @JoinColumn(name = "id_curso")
@@ -38,7 +37,7 @@ public class Topico {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Usuario autor;
 
     public Topico(DatosRegistroTopicos datosRegistroTopicos){
         this.titulo = datosRegistroTopicos.titulo();

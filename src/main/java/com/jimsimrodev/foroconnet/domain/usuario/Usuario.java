@@ -36,12 +36,14 @@ public class Usuario implements UserDetails {
     )
     private List<Perfil> perfiles;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Topico> topicos;
 
     public Usuario(DatosUsuario usuario) {
         this.id = usuario.id();
+        this.nombre = usuario.nombre();
     }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
