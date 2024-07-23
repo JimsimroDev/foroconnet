@@ -24,7 +24,7 @@ public class Topico {
     private Long id;
     private String titulo;
     private String mensaje;
-    @Column(name = "fecha_creacion")
+    @Column(name = "fechaCreacion")
     private LocalDate fechaCreacion;
     private String status;
 
