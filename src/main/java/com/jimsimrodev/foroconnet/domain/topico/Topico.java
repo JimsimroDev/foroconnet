@@ -47,4 +47,21 @@ public class Topico {
         this.autor = datosRegistroTopicos.autor();
         this.curso = datosRegistroTopicos.curso();
     }
+
+    /* String mensaje,
+         String status,
+         String titulo*/
+
+    public void actualizarTopico(DatosActualizarTopico datosActualizarTopico) {
+        if(datosActualizarTopico.titulo() != null) {
+            this.titulo = datosActualizarTopico.titulo();
+        }
+
+        if(datosActualizarTopico.mensaje() != null) {
+            this.mensaje = datosActualizarTopico.mensaje();
+        }
+        if(datosActualizarTopico.status() != null) {
+            this.status = datosActualizarTopico.status();
+        }
+    }
 }
