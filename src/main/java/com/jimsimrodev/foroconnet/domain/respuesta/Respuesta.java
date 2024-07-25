@@ -34,4 +34,12 @@ public class Respuesta {
     @JoinColumn(name = "id_usuario")
     private Usuario autor;
     private String solucion;
+
+    public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta) {
+        this.mensaje = datosRegistroRespuesta.mensaje();
+        this.topico = datosRegistroRespuesta.topico();
+        this.fechaCreacion = LocalDate.now();
+        this.autor = datosRegistroRespuesta.autor();
+        this.solucion = datosRegistroRespuesta.solucion();
+    }
 }

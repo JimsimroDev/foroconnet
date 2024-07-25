@@ -69,7 +69,7 @@ public class TopicosController {
         ,
         topico.getAutor() != null ? new DatosUsuario(topico.getAutor().getId(), topico.getAutor().getNombre()) : null);
 
-    URI url = uriComponentsBuilder.path("/topico/{id}.").buildAndExpand(topico.getId()).toUri();
+    URI url = uriComponentsBuilder.path("/topico/{id}").buildAndExpand(topico.getId()).toUri();
     return ResponseEntity.created(url).body(datosRespuestaTopico);
   }
 
