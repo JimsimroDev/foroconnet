@@ -44,6 +44,13 @@ public class Usuario implements UserDetails {
         this.nombre = usuario.nombre();
     }
 
+    public Usuario(DatosCrearUsuario datosCrearUsuario) {
+        this.id = datosCrearUsuario.id();
+        this.nombre = datosCrearUsuario.nombre();
+        this.correoElectronico = datosCrearUsuario.correo_electronico();
+        this.contrasena = datosCrearUsuario.contrasena();
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -43,7 +43,7 @@ public class RespuestaController {
         );
 
         Respuesta respuesta = respuestaRepository.save(new Respuesta(datosRegistroRespuesta));
-
+       // topico.getRespuestas().add(respuesta);
         return ResponseEntity.ok().build();
     }
 }

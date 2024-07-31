@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -25,14 +26,14 @@ public class Topico {
     private String titulo;
     private String mensaje;
     @Column(name = "fechaCreacion")
-    private LocalDate fechaCreacion;
+    private LocalDateTime fechaCreacion;
     private String status;
 
     @ManyToOne
     @JoinColumn(name = "id_curso")
     private Curso curso;
 
-    @OneToMany(mappedBy = "topico")// cascade = CascadeType.ALL, fetch = FetchType.LAZY
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, fetch = FetchType.LAZY)// cascade = CascadeType.ALL, fetch = FetchType.LAZY
     private List<Respuesta> respuestas;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -42,7 +43,7 @@ public class Topico {
     public Topico(DatosRegistroTopicos datosRegistroTopicos){
         this.titulo = datosRegistroTopicos.titulo();
         this.mensaje = datosRegistroTopicos.mensaje();
-        this.fechaCreacion = LocalDate.now();
+        this.fechaCreacion = LocalDateTime.now();
         this.status = datosRegistroTopicos.status();
         this.autor = datosRegistroTopicos.autor();
         this.curso = datosRegistroTopicos.curso();

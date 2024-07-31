@@ -4,8 +4,6 @@ CREATE TABLE IF NOT EXISTS `foroconnet`.`topico` (
   `mensaje` VARCHAR(250) NOT NULL,
   `fecha_creacion` datetime not null,
   `status` VARCHAR(250) NOT NULL,
-  `autor` VARCHAR(45) NOT NULL,
-  `respuestas` VARCHAR(250),
   `id_curso` INT ,
   `id_usuario` INT ,
   PRIMARY KEY (`id`),

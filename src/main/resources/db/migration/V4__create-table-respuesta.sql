@@ -1,9 +1,7 @@
 CREATE TABLE IF NOT EXISTS `foroconnet`.`respuesta` (
-  `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
   `id` INT NOT NULL,
   `mensaje` VARCHAR(250) NOT NULL,
-  `topico` VARCHAR(250) NOT NULL,
   `fechaCreacion` VARCHAR(45) NOT NULL,
   `autor` VARCHAR(45) NOT NULL,
   `solucion` VARCHAR(250) NOT NULL,

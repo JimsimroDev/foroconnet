@@ -28,7 +28,7 @@ public class Respuesta {
     @JoinColumn(name = "id_topico")
     private Topico topico;
     @Column(name = "fecha_creacion")
-    private LocalDate fechaCreacion;
+    private LocalDateTime fechaCreacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
@@ -38,7 +38,7 @@ public class Respuesta {
     public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta) {
         this.mensaje = datosRegistroRespuesta.mensaje();
         this.topico = datosRegistroRespuesta.topico();
-        this.fechaCreacion = LocalDate.now();
+        this.fechaCreacion = LocalDateTime.now();
         this.autor = datosRegistroRespuesta.autor();
         this.solucion = datosRegistroRespuesta.solucion();
     }

@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity(name = "Perfil")
-@Table(name = "perfiles")
+@Table(name = "perfil")
 public class Perfil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

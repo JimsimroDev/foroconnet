@@ -35,12 +35,14 @@ public class TopicosController {
 
   @GetMapping
   @PreAuthorize("isAuthenticated()")
-  public ResponseEntity<Page<DatosListadoTopico>> listadoTopicos(@PageableDefault(size = 10) Pageable paginacion) {
+  public ResponseEntity<Page<DatosListadoTopico>> listadoTopicos(@PageableDefault(size = 5) Pageable paginacion) {
 
     return ResponseEntity.ok(topicoRepository.findBy(paginacion).map(DatosListadoTopico::new));
   }
 
+
   @PostMapping
+  @PreAuthorize("hasRole('ADMIN'")
   public ResponseEntity<DatosRespuestaTopico> guardarTopico(
 
       @RequestBody @Valid DatosRegistroTopicos datosRegistroTopicos,
@@ -93,5 +95,24 @@ public class TopicosController {
     Topico topico = topicoRepository.getReferenceById(id);
     topicoRepository.deleteById(id);
     return ResponseEntity.ok().build();
+  }
+
+
+  @GetMapping("/{id}")
+  public ResponseEntity<DatosListadoTopico> mostrandoDatosTopico(@PathVariable Long id){
+    Topico topico = topicoRepository.getReferenceById(id);
+
+    var datsoTopico = new DatosListadoTopico(topico);
+
+            /*DatosRespuestaTopico(topico.getId(), topico.getTitulo(),
+            topico.getMensaje(), topico.getFechaCreacion(), topico.getStatus(),
+            topico.getCurso() != null
+                    ? new DatosCurso(topico.getCurso().getId(), topico.getCurso().getNombre(), topico.getCurso().getCategoria())
+                    : null // valido si no tiene curso asignado devuelve null
+            ,
+            topico.getAutor() != null ? new DatosUsuario(topico.getAutor().getId(), topico.getAutor().getNombre()) : null);*/
+
+
+    return ResponseEntity.ok(datsoTopico);
   }
 }
