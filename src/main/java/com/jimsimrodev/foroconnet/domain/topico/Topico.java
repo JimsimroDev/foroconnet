@@ -1,17 +1,27 @@
 package com.jimsimrodev.foroconnet.domain.topico;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import com.jimsimrodev.foroconnet.domain.curso.Curso;
 import com.jimsimrodev.foroconnet.domain.respuesta.Respuesta;
 import com.jimsimrodev.foroconnet.domain.usuario.Usuario;
-import jakarta.persistence.*;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -19,7 +29,8 @@ import java.util.List;
 @EqualsAndHashCode(of = "id")
 @Entity(name = "Topico")
 @Table(name = "topico")
-public class Topico {
+public class Topico 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,7 +51,8 @@ public class Topico {
     @JoinColumn(name = "id_usuario")
     private Usuario autor;
 
-    public Topico(DatosRegistroTopicos datosRegistroTopicos){
+    public Topico(DatosRegistroTopicos datosRegistroTopicos)
+    {
         this.titulo = datosRegistroTopicos.titulo();
         this.mensaje = datosRegistroTopicos.mensaje();
         this.fechaCreacion = LocalDateTime.now();
@@ -53,7 +65,8 @@ public class Topico {
          String status,
          String titulo*/
 
-    public void actualizarTopico(DatosActualizarTopico datosActualizarTopico) {
+    public void actualizarTopico(DatosActualizarTopico datosActualizarTopico) 
+    {
         if(datosActualizarTopico.titulo() != null) {
             this.titulo = datosActualizarTopico.titulo();
         }
