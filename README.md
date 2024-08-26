@@ -53,4 +53,4 @@ http://localhost:8080/topicos./1
 ```
 
 # Tecnologia usadas
-<i class="material-icons">face</i> java
+<i class="material-icons">Java</i>
