@@ -35,5 +35,4 @@ public class LoginController {
     var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
     return ResponseEntity.ok(new DatosJWTtokens(JWTtoken));
   }
-
 }

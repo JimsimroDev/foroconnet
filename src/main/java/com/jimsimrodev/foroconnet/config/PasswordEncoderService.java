@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PasswordEncoderService {
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+  private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public String encodePassword(String contrasena){
-        return encoder.encode(contrasena);
-    }
+  public String encodePassword(String contrasena) {
+    return encoder.encode(contrasena);
+  }
 
-    public Boolean mactches(String contrasenaNormal, String contrasenaProcesada){
-        return encoder.matches(contrasenaNormal, contrasenaProcesada);
-    }
+  public Boolean mactches(String contrasenaNormal, String contrasenaProcesada) {
+    return encoder.matches(contrasenaNormal, contrasenaProcesada);
+  }
 }
