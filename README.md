@@ -10,10 +10,10 @@ Esta API consiste en la creacion de tipicos tambien tienes la opcion de editar a
 
 # La respuesta de cada edpoint es en json
 Este es un ejemplo real de la respuesta que arroja el edpoint
-> [!example]
->respuesta de edpoint
+> respuesta de edpoint
 
-http://localhost:8080/topicos./1
+
+
 ```
 {
 "id": 1,
