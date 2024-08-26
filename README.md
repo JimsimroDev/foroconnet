@@ -4,7 +4,7 @@
 Esta API consiste en la creacion de tipicos tambien tienes la opcion de editar actualizar topicos, tambien puedes crear o registrar un usuario y hacer el login con ese usuario para que pudas gestionar los tipicos
 
 # Rutas que tiene la api
- >[!> [!IMPORTANT] Rutas que tiene la api
+ > [!IMPORTANT] Rutas que tiene la api
 http://localhost:8080/login
 http://localhost:8080/topicos.
 http://localhost:8080/topicos.?size=20
@@ -16,7 +16,8 @@ http://localhost:8080/topicos./1
 
 # La respuesta de cada edpoint es en json
 Este es un ejemplo real de la respuesta que arroja el edpoint
->[!example] respuesta de edpoint
+>[!example]
+respuesta de edpoint
 http://localhost:8080/topicos./1
 ```
 {
