@@ -16,45 +16,45 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
-    @Value("${api.security.secret}")
-    private  String apiSecretep;
+  @Value("${api.security.secret}")
+  private String apiSecretep;
 
-    public String generarToken(Usuario usuario){
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(apiSecretep);
-            return  JWT.create()
-                    .withIssuer("foroconnet")
-                    .withSubject(usuario.getNombre())
-                    .withClaim("id", usuario.getId())
-                    .withExpiresAt(generarFechaExpiracion())
-                    .sign(algorithm);
-        } catch (JWTCreationException exception){
-            throw new RuntimeException("error al generar token jwt", exception);
-        }
+  public String generarToken(Usuario usuario) {
+    try {
+      Algorithm algorithm = Algorithm.HMAC256(apiSecretep);
+      return JWT.create()
+          .withIssuer("foroconnet")
+          .withSubject(usuario.getNombre())
+          .withClaim("id", usuario.getId())
+          .withExpiresAt(generarFechaExpiracion())
+          .sign(algorithm);
+    } catch (JWTCreationException exception) {
+      throw new RuntimeException("error al generar token jwt", exception);
     }
+  }
 
-    public String getSubject(String token){
-        if(token == null){
-            throw new RuntimeException();
-        }
-        DecodedJWT verifier = null;
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(apiSecretep);
-            verifier = JWT.require(algorithm)
-                    .withIssuer("foroconnet")
-                    .build()
-                    .verify(token);
-            verifier.getSubject();
-        } catch (JWTVerificationException exception){
-            System.out.println(exception.toString());
-        }
-        if( verifier.getSubject() == null){
-            throw new RuntimeException("Verifier invalide");
-        }
-        return  verifier.getSubject();
+  public String getSubject(String token) {
+    if (token == null) {
+      throw new RuntimeException();
     }
+    DecodedJWT verifier = null;
+    try {
+      Algorithm algorithm = Algorithm.HMAC256(apiSecretep);
+      verifier = JWT.require(algorithm)
+          .withIssuer("foroconnet")
+          .build()
+          .verify(token);
+      verifier.getSubject();
+    } catch (JWTVerificationException exception) {
+      System.out.println(exception.toString());
+    }
+    if (verifier.getSubject() == null) {
+      throw new RuntimeException("Verifier invalide");
+    }
+    return verifier.getSubject();
+  }
 
-    private Instant generarFechaExpiracion(){
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
-    }
+  private Instant generarFechaExpiracion() {
+    return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
+  }
 }
