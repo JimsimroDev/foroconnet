@@ -10,7 +10,7 @@ Esta API consiste en la creacion de tipicos tambien tienes la opcion de editar a
 
 # La respuesta de cada edpoint es en json
 Este es un ejemplo real de la respuesta que arroja el edpoint
->[!TIP]
+>[!note]
 > respuesta de edpoint
 ```
 {
