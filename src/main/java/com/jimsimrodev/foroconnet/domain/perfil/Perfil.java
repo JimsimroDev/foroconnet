@@ -17,11 +17,11 @@ import java.util.List;
 @Entity(name = "Perfil")
 @Table(name = "perfil")
 public class Perfil {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private String nombre;
 
-    @ManyToMany(mappedBy = "perfiles")
-    private List<Usuario> usuarios;
+  @ManyToMany(mappedBy = "perfiles")
+  private List<Usuario> usuarios;
 }
