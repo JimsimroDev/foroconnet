@@ -17,18 +17,18 @@ import java.util.List;
 @Entity(name = "Curso")
 @Table(name = "curso")
 public class Curso {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nombre;
-    private String categoria;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private String nombre;
+  private String categoria;
 
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Topico> topicos;
+  @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  private List<Topico> topicos;
 
-    public Curso(DatosCurso curso) {
-        this.id = curso.id();
-        this.nombre = curso.nombre();
-        this.categoria = curso.categoria();
-    }
+  public Curso(DatosCurso curso) {
+    this.id = curso.id();
+    this.nombre = curso.nombre();
+    this.categoria = curso.categoria();
+  }
 }
