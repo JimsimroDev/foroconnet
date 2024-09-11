@@ -27,10 +27,9 @@ public class SecurityConfiguractions {
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and().authorizeRequests()
         .requestMatchers(HttpMethod.POST, "/login").permitAll()
-
-        .requestMatchers(HttpMethod.POST, "/topico").authenticated() // Agrega esta línea
-        // .requestMatchers(HttpMethod.POST, "/tipico").authenticated() // Agrega esta
-        // línea
+        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // Permite el acceso a los endpoints de
+                                                                          // Swagger
+        .requestMatchers(HttpMethod.POST, "/topico.").authenticated() // Agrega esta línea
         .anyRequest().authenticated()
         .and()
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

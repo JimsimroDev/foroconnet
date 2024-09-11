@@ -48,14 +48,14 @@ public class TopicosController {
   private IUsuarioRepesitory usuarioRepesitory;
 
   @GetMapping
-  @PreAuthorize("isAuthenticated()")
+  //@PreAuthorize("isAuthenticated()")
   public ResponseEntity<Page<DatosListadoTopico>> listadoTopicos(@PageableDefault(size = 5) Pageable paginacion) {
 
     return ResponseEntity.ok(topicoRepository.findBy(paginacion).map(DatosListadoTopico::new));
   }
 
   @PostMapping
-  @PreAuthorize("hasRole('ADMIN'")
+  //@PreAuthorize("hasRole('ADMIN'")
   public ResponseEntity<DatosRespuestaTopico> guardarTopico(
 
       @RequestBody @Valid DatosRegistroTopicos datosRegistroTopicos,
