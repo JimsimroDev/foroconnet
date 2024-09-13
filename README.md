@@ -52,3 +52,9 @@ Este es un ejemplo real de la respuesta que arroja el edpoint
 # Tecnologia usadas
 
 <i class="material-icons">Java</i>
+Spring Boot
+Spring Security
+Spring jpa
+Swagger
+MySQL
+Flywy
