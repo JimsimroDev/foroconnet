@@ -60,7 +60,7 @@ MySQL
 Flywy
 
 
-* [![Spring][Spring Boot]][Spring Boot]
+* [![Spring][spring.io]][Spring-url]
 <i class="fab fa-java" style="font-size:24px;"></i> Java
 
 ![Java](https://th.bing.com/th/id/R.9ba4285a442430383287a7bafac108d9?rik=m8IB6xW%2fEQEjvg&pid=ImgRaw&r=0)
