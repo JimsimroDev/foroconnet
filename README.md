@@ -42,13 +42,3 @@ Este es un ejemplo real de la respuesta que arroja el edpoint
   {
    "id": 2,
    "mensaje": "Usar expresiones regulare",
-   "solucion": "debese usar algo as {/7cd//sd}",
-   "fechaCreacion": "2024-07-25T18:01:29.341038"
-  }
- ]
-}
-```
-
-# Tecnologia usadas
-
-<i class="material-icons">Java</i>

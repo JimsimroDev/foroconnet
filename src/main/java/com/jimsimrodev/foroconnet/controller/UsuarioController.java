@@ -18,7 +18,7 @@ import com.jimsimrodev.foroconnet.domain.usuario.Usuario;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/usuarios.")
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
   @Autowired
