@@ -48,14 +48,14 @@ public class TopicosController {
   private IUsuarioRepesitory usuarioRepesitory;
 
   @GetMapping
-  //@PreAuthorize("isAuthenticated()")
+  // @PreAuthorize("isAuthenticated()")
   public ResponseEntity<Page<DatosListadoTopico>> listadoTopicos(@PageableDefault(size = 5) Pageable paginacion) {
 
     return ResponseEntity.ok(topicoRepository.findBy(paginacion).map(DatosListadoTopico::new));
   }
 
   @PostMapping
-  //@PreAuthorize("hasRole('ADMIN'")
+  // @PreAuthorize("hasRole('ADMIN'")
   public ResponseEntity<DatosRespuestaTopico> guardarTopico(
 
       @RequestBody @Valid DatosRegistroTopicos datosRegistroTopicos,
@@ -114,7 +114,7 @@ public class TopicosController {
   public ResponseEntity<DatosListadoTopico> mostrandoDatosTopico(@PathVariable Long id) {
     Topico topico = topicoRepository.getReferenceById(id);
 
-    var datsoTopico = new DatosListadoTopico(topico);
+    var datosTopico = new DatosListadoTopico(topico);
 
     /*
      * DatosRespuestaTopico(topico.getId(), topico.getTitulo(),
@@ -128,6 +128,6 @@ public class TopicosController {
      * topico.getAutor().getNombre()) : null);
      */
 
-    return ResponseEntity.ok(datsoTopico);
+    return ResponseEntity.ok(datosTopico);
   }
 }
