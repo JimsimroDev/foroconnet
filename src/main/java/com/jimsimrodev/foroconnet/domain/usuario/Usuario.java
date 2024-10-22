@@ -28,7 +28,7 @@ public class Usuario implements UserDetails {
   private String nombre;
   private String correoElectronico;
   private String contrasena;
-
+  private Boolean activo;
   @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "usuario_perfil", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "perfil_id"))
   private List<Perfil> perfiles;
@@ -42,6 +42,7 @@ public class Usuario implements UserDetails {
   }
 
   public Usuario(DatosCrearUsuario datosCrearUsuario) {
+    this.activo = false;
     this.id = datosCrearUsuario.id();
     this.nombre = datosCrearUsuario.nombre();
     this.correoElectronico = datosCrearUsuario.correo_electronico();
@@ -81,5 +82,9 @@ public class Usuario implements UserDetails {
   @Override
   public boolean isEnabled() {
     return true;
+  }
+
+  public void activarUsuario() {
+    this.activo = true;
   }
 }

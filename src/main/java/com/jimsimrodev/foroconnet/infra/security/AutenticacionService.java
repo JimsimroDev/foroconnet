@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class AutenticacionService implements UserDetailsService {
 
-    @Autowired
-    private IUsuarioRepesitory usuarioRepesitory;
+  @Autowired
+  private IUsuarioRepesitory usuarioRepesitory;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return usuarioRepesitory.findByNombre(username);
-    }
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    return usuarioRepesitory.findByNombre(username);
+  }
 }
