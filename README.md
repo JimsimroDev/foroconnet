@@ -1,44 +1,22 @@
 # Foroconect
 
-## Descripción
+## Acerca del proyecto
 
-Esta API consiste en la creacion de tipicos tambien tienes la opcion de editar actualizar topicos, tambien puedes crear o registrar un usuario y hacer el login con ese usuario para que pudas gestionar los tipicos
+Bienvenido a la API de Foro de Consultas, una plataforma diseñada para facilitar el intercambio de preguntas y respuestas entre los usuarios. Esta API permite realizar operaciones completas de CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar preguntas y respuestas.
 
-# Rutas que tiene la api
- >
+# Funcionalidades
+ Crear Preguntas: Los usuarios pueden formular nuevas preguntas sobre diversos temas.
+Leer Preguntas y Respuestas: Consulta preguntas existentes y sus respuestas asociadas.
+Actualizar Preguntas y Respuestas: Permite a los usuarios editar sus contribuciones.
+Eliminar Preguntas y Respuestas:
+
  > [!IMPORTANT]
-> Rutas que tiene la api
->
-
-# La respuesta de cada edpoint es en json
-
-Este es un ejemplo real de la respuesta que arroja el edpoint
->[!note]
-> respuesta de edpoint
-
-```
-{
-"id": 1,
- "titulo": "titulo de prueba 01",
- "mensaje": "como hace el delecte?",
- "fehcaCreacion": "2024-07-25T17:33:37",
- "estado": "pendiente",
- "curso": {
-  "id": 1,
-  "nombre": "curso java",
-  "categoria": "programacion"
- },
- "autor": {
-  "id": 1,
-  "nombre": "jimmis.simanca"
- },
- "respuestas": [
-  {
-   "id": 1,
-   "mensaje": "Este es un mensaje de ejemplo",
-   "solucion": "Esta es una solución de ejemplo",
-   "fechaCreacion": "2024-07-25T10:00:00"
-  },
-  {
-   "id": 2,
-   "mensaje": "Usar expresiones regulare",
+> Tecnologia usadas
+> - [java 17](https://docs.oracle.com/en/java/javase/17/docs/api/)
+> - [Spring boot](https://spring.io/projects/spring-boot)
+> - [Spring Initializr](https://start.spring.io/)
+> - [Spring security](https://spring.io/projects/spring-security)
+> - [Spring jpa](https://spring.io/projects/spring-data)
+> - [MySQL](https://www.mysql.com/)
+> - [swagger](https://springdoc.org/)
+> - Flaywar migration
